@@ -81,3 +81,7 @@ select no,no,no,name from sample21; --여러번 중복 지정 가능
 ```
 select * from sample21 where no = 2;
 ```
+
+<h3>비교 연산자</h3>
+= 연산자 ? 비교한 결괏값이 참인지 거짓인지를 반환 <br/>
+<> 값이 서로 다른 경우
