@@ -178,3 +178,34 @@ Maven 빌드 환경에서 QueryDSL을 사용하기 위해서는 다음과 같은
 ````
 
 이렇게 변경한 후 Qitem 클래스가 정상적으로 생성되었습니다.
+<br>
+<br>
+<hr>
+
+에러 메시지: `java: Attempt to recreate a file for type com.shop.entity.QItem`
+
+해결 방법:
+1. pom.xml 파일에서 com.mysema.maven 관련 설정을 삭제합니다.
+2. Maven 버튼(M)을 클릭한 후, 프로젝트 내의 Lifecycle에서 캐시 값을 삭제하고 clean을 실행합니다.
+3. compile을 다시 실행하면 문제가 해결되어 정상적으로 작동합니다.
+
+````
+<plugin>
+				<groupId>com.mysema.maven</groupId>
+				<artifactId>apt-maven-plugin</artifactId>
+				<version>1.1.3</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>process</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>target/generated-sources/java</outputDirectory>
+							<processor>com.querydsl.apt.jpa.JPAAnnotationProcessor</processor>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+            삭제!!
+````
