@@ -1,3 +1,8 @@
+<h3>스프링부트 쇼핑몰 with JPA</h3>
+<h3>책 예제를 통한 학습 중 발생한 문제 해결 기록</h3>
+<hr>
+
+
 <b>이클립스만 사용하다가 이번에 인텔리제이를 사용해보았습니다.</b>
 <br>
 인텔리제이에서 Lombok을 설치했지만, import하여 사용할 때<br>
@@ -16,10 +21,6 @@ Lombok이 적용되지 않아 @Setter, @Getter 등의 어노테이션이 작동�
 예전에 인텔리제이를 설치한 후 업데이트를 하지 않은 것이 문제의 원인이었습니다.
 <br>
 <br>
-<br>
-<br>
-<br>
-
 <hr>
 
 <h4>출력 결과를 OrderBy 키워드를 이용하면 오름차순 또는 내림차순으로 조회할 수 있다.</h4>
@@ -112,3 +113,68 @@ JPQL 문법으로 문자열을 입력하기 때문에 잘못 입력하면 컴파
 				</executions>
 		</plugin>
 ````
+<br>
+<br>
+<hr>
+Maven 빌드 환경에서 QueryDSL을 사용하기 위해서는 다음과 같은 의존성 주입이 필요합니다.
+
+
+````
+☑️ pom.xml - 의존성 설정
+<dependency>
+    <groupId>com.querydsl</groupId>
+    <artifactId>querydsl-jpa</artifactId>
+    <version>4.3.1</version>
+</dependency>
+<dependency>
+    <groupId>com.querydsl</groupId>
+    <artifactId>querydsl-apt</artifactId>
+    <version>4.3.1</version>
+</dependency>
+
+
+☑️ pom.xml - 플러그인 설정
+ <plugin>
+    <groupId>com.mysema.maven</groupId>
+    <artifactId>apt-maven-plugin</artifactId>
+    <version>1.1.3</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>process</goal>
+            </goals>
+            <configuration>
+                <outputDirectory>target/generated-sources/java</outputDirectory>
+                <processor>com.querydsl.apt.jpa.JPAAnnotationProcessor</processor>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+````
+
+하지만 pom.xml에 Qdomain이라는 자바 코드를 생성하는 플러그인을 추가하고 의존성을 받아오려고 해도 Qitem 클래스가 생성되지 않았고, 아래와 같은 에러가 발생했습니다.
+
+````
+1 problem was encountered while building the effective model for org.javassist:javassist:jar:3.18.2-ga
+````
+
+이 오류 메시지는 Maven이 javassist 라이브러리의 효과적인 모델을 빌드하는 과정에서 문제가 발생했음을 나타냅니다. 여러 가지 방법을 시도해본 결과, 의존성의 버전을 올리니 문제가 해결되었습니다
+`4.3.1 -> 5.0.0` ...
+
+````
+        <dependency>
+			<groupId>com.querydsl</groupId>
+			<artifactId>querydsl-jpa</artifactId>
+			<version>5.0.0</version>
+			<classifier>jakarta</classifier>
+		</dependency>
+
+		<dependency>
+			<groupId>com.querydsl</groupId>
+			<artifactId>querydsl-apt</artifactId>
+			<version>5.0.0</version>
+			<classifier>jakarta</classifier>
+		</dependency>
+````
+
+이렇게 변경한 후 Qitem 클래스가 정상적으로 생성되었습니다.
