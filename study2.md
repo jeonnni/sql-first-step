@@ -116,6 +116,10 @@ JPQL 문법으로 문자열을 입력하기 때문에 잘못 입력하면 컴파
 <br>
 <br>
 <hr>
+에러 메시지:
+
+`1 problem was encountered while building the effective model for org.javassist:javassist:jar:3.18.2-ga` 
+
 Maven 빌드 환경에서 QueryDSL을 사용하기 위해서는 다음과 같은 의존성 주입이 필요합니다.
 
 
@@ -209,3 +213,6 @@ Maven 빌드 환경에서 QueryDSL을 사용하기 위해서는 다음과 같은
 
             삭제!!
 ````
+<br>
+<br>
+<hr>
