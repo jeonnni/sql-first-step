@@ -1,5 +1,8 @@
 <h2>JPA (Java Persistence API)</h2> 
 정의: 자바 ORM(Object Relational Mapping) 기술에 대한 표준 API
+<br>
+
+
 <h2>ORM (Object Relational Mapping)</h2> 
 정의: ORM은 객체와 관계형 데이터베이스를 매핑해주는 기술
 <br>
@@ -22,6 +25,7 @@
 3. 학습시간 <br>
    - JPA를 배우는 데 시간이 소요될 수 있음.<br>
 
+<br>
 <h2>엔티티</h2>
 정의: 데이터 베이스의 테이블에 대응하는 클래스다. @Entity가 붙은 클래스는 JPA 에서 관리하며 엔티티라고 한다. 
 클래스 자체나 생성된 인스턴스도 엔티티라고 부른다. 
@@ -63,10 +67,21 @@ Thymeleaf는 화면을 동적으로 생성하기 위한 템플릿 엔진으로, 
 
 `서버 사이드 렌더링 방식` 이라고 말한다. 
 - <h4>서버 사이드 템플릿 엔진</h4>
-  1. Thymeleaf
-  2. JSP
-  3. Freemarker
-  4. Groovy
-  5. Mustache 등 
+  1. Thymeleaf<br>
+  2. JSP<br>
+  3. Freemarker<br>
+  4. Groovy<br>
+  5. Mustache 등<br>
 - <h4>Thymeleaf 장점</h4>
   Thymeleaf의 가장 큰 장점은 'natural templates'이다. JSP 파일은 .JSP 확장자를 가지며, 서버 사이드 렌더링을 하지 않으면 JSP 문법이 화면에 나타난다. 반면, Thymeleaf는 .html 확장자를 가지며, Thymeleaf 문법을 포함한 HTML 파일을 브라우저에서 직접 열어도 정상적인 화면을 볼 수 있다. Thymeleaf 문법은 HTML 태그의 속성으로 사용된다.
+
+
+  <br>
+<h2>Spring Boot Devtools</h2>
+애플리케이션 개발 시 유용한 기능들을 제공하는 모듈이다. 개발 생산성을 향상시키는 데 도움이 된다.
+
+- <h4>Spring Boot Devtool 에서 제공하는 대표적인 기능</h4>
+  1. Automatic Restart : classpath에 있는 파일이 변경될 때마다 애플리케이션을 자동으로 재시작 해줌<br>
+  2. Live Reload : 정적 자원 (html,css,js) 수정 시 새로고침 없이 바로 적용 가능<br>
+  3. Property Defaults : Thymeleaf는 기본적으로 성능을 향상시키기 위해서 캐싱 기능을 사용한다. 하지만 개발하는 과정에서 캐싱 기능을 사용한다면 수정한 소스가 제대로 반영되지 않을 수 있기 때문에 cache 의 기본값을 false로 설정할 수 있다br>
+- <h4>위 기능들을 추가하려면 pom.xm에 spring-boot-devtools 의존성 추가 후 "Reload All Maven Projects"을 클릭하여 의존성을 받아와야 한다.</h4>
