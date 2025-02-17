@@ -216,3 +216,16 @@ Maven 빌드 환경에서 QueryDSL을 사용하기 위해서는 다음과 같은
 <br>
 <br>
 <hr>
+
+Registry에서 compiler.automake.allow.when.app.running 항목이 없어서 검색해보니 
+2021.2 버전부터는 Registry가 아닌 Advanced Settings에서 이 설정을 조정해야 한다고 합니다.
+
+해결 방법:
+- <h4>소스를 수정할 때 자동으로 빌드가 되도록 설정하기</h4>
+  1. 설정 경로: Settings > Build, Execution, Deployment > Compiler<br>
+  2. 여기서 Build Project Automatically 옵션을 체크합니다.<br>
+- <h4>애플리케이션이 실행 도중 이어도 자동으로 재실행될 수 있도록 허락하기</h4>
+  1. 설정 경로: Settings > Advanced Settings<br>
+  2. Allow auto-make to start even if developed application is running 옵션을 체크합니다.<br>
+
+​
