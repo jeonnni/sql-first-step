@@ -89,7 +89,7 @@ Thymeleaf는 화면을 동적으로 생성하기 위한 템플릿 엔진으로, 
 
   <br>
 <h2>th:each</h2>
-<h4>자바의 for문처럼 '반복문'을 사용할 수 있다.</h4>
+<h4>자바의 for문처럼 '반복문'을 사용할 수 있다. Thymeleaf에서는 th:each 문법을 사용한다 </h4>
 
 `<tr th:each="itemDto, status: ${itemDtoList}">`
 
@@ -113,7 +113,7 @@ Thymeleaf는 화면을 동적으로 생성하기 위한 템플릿 엔진으로, 
 
   <br>
 <h2>th:if, th:unless</h2>
-<h4>자바에서 if-else와 같은, '조건문'을 사용할 수 있다. 아래 코드에 조건을 줘서 index 번호가 홀수 짝수로 출력됨..</h4>
+<h4>자바에서 if-else와 같은, '조건문'을 사용할 수 있다. 아래 코드에 조건을 줘서 index 번호가 홀수 짝수로 출력됨.. Thymeleaf에서는 th:if, th:unless 문법을 사용한다</h4>
 
 ````
     <tr th:each="itemDto, status : ${itemDtoList}">
@@ -128,3 +128,19 @@ Thymeleaf는 화면을 동적으로 생성하기 위한 템플릿 엔진으로, 
       <td th:text="${itemDto.regTime}"></td>
     </tr>
 ````
+
+
+  <br>
+<h2>th:switch, th:case</h2>
+<h4>자바에서 switch-case문과 같은, 여러개의 조건을 처리해야 할 때 사용한다. 위 코드와 실행했을때 동일한 결과가 출력된다. Thymeleaf에서는 th:switch, th:case 문법을 사용한다</h4>
+
+````
+      <td th:switch="${status.even}">
+        <span th:case="true">짝수</span>
+        <span th:case="false">홀수</span>
+      </td>
+````
+
+  <br>
+<h2>th:href</h2>
+<h4>링크를 처리하는 문법. Thymeleaf에서는 th:href 문법을 사용한다</h4>
