@@ -89,7 +89,7 @@ Thymeleaf는 화면을 동적으로 생성하기 위한 템플릿 엔진으로, 
 
   <br>
 <h2>th:each</h2>
-<h4>자바의 for문처럼 반복문을 사용할 수 있다.</h4>
+<h4>자바의 for문처럼 '반복문'을 사용할 수 있다.</h4>
 
 `<tr th:each="itemDto, status: ${itemDtoList}">`
 
@@ -108,5 +108,23 @@ Thymeleaf는 화면을 동적으로 생성하기 위한 템플릿 엔진으로, 
         <td th:text="${itemDto.itemDetail}"></td>
         <td th:text="${itemDto.price}"></td>
         <td th:text="${itemDto.regTime}"></td>
+    </tr>
+````
+
+  <br>
+<h2>th:if, th:unless</h2>
+<h4>자바에서 if-else와 같은, '조건문'을 사용할 수 있다. 아래 코드에 조건을 줘서 index 번호가 홀수 짝수로 출력됨..</h4>
+
+````
+    <tr th:each="itemDto, status : ${itemDtoList}">
+
+      <td th:if="${status.even}" th:text="짝수"></td>
+      <td th:unless="${status.even}" th:text="홀수"></td>
+<!--  <td th:text="${status.index}"></td>-->
+
+      <td th:text="${itemDto.itemNm}"></td>
+      <td th:text="${itemDto.itemDetail}"></td>
+      <td th:text="${itemDto.price}"></td>
+      <td th:text="${itemDto.regTime}"></td>
     </tr>
 ````
