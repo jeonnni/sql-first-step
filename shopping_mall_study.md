@@ -85,3 +85,28 @@ Thymeleaf는 화면을 동적으로 생성하기 위한 템플릿 엔진으로, 
   2. Live Reload : 정적 자원 (html,css,js) 수정 시 새로고침 없이 바로 적용 가능<br>
   3. Property Defaults : Thymeleaf는 기본적으로 성능을 향상시키기 위해서 캐싱 기능을 사용한다. 하지만 개발하는 과정에서 캐싱 기능을 사용한다면 수정한 소스가 제대로 반영되지 않을 수 있기 때문에 cache 의 기본값을 false로 설정할 수 있다br>
 - <h4>위 기능들을 추가하려면 pom.xm에 spring-boot-devtools 의존성 추가 후 "Reload All Maven Projects"을 클릭하여 의존성을 받아와야 한다.</h4>
+
+
+  <br>
+<h2>th:each</h2>
+<h4>자바의 for문처럼 반복문을 사용할 수 있다.</h4>
+
+`<tr th:each="itemDto, status: ${itemDtoList}">`
+
+    전달받은 itemDtoList에 있는 데이터를 하나씩 꺼내와서 
+    itemDto에 담아주고 
+    status에는 현재 반복에 대한 상태 데이터가 존재한다. 
+    변수명은 status 대신 다른 걸 사용해도 됨.
+
+````
+    <tr th:each="itemDto, status: ${itemDtoList}">
+
+        <td th:text="${status.index}"></td> 
+        //현재 순회하고 있는 데이터의 인덱스 출력
+
+        <td th:text="${itemDto.itemNm}"></td>
+        <td th:text="${itemDto.itemDetail}"></td>
+        <td th:text="${itemDto.price}"></td>
+        <td th:text="${itemDto.regTime}"></td>
+    </tr>
+````
