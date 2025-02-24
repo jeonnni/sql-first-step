@@ -195,3 +195,25 @@ th:href=@{이동할 경로}
 ##### 하나의 레이아웃을 미리 만들어놓고 현재 작성중인 페이지만 레이아웃에 끼워넣으면 된다.
 
 
+
+<br/>
+
+## security
+#### 스프링 시큐리티는 스프링 기반의 애플리케이션을 위한 보안 솔루션을 제공한다. 애플리케이션을 만들기 위해선 보통 인증/인가 등의 보안이 필요하다.
+#### security dependency 추가하기
+
+```
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-security</artifactId>
+</dependency>
+```
+
+##### pom.xml에 security 와 관련된 의존성 추가하고 받아오면 이제 모든 요청은 인증을 필요로 한다. 
+##### 기본적으로 제공하는 아이디는 user 고 비밀번호는 애플리케이션을 실행할 때마다 콘솔창에 출력되는 것을 볼 수 있다 
+
+```
+Using generated security password: 85bbf8e4-5711-45b4-b56d-99068283d3cc
+```
+
+#### 로그아웃 기능도 제공한다. URL에 localhost/logout 을 입력하면 된다. 하지만 현재는 user 계정 밖에 없으며 비밀번호도 계속 바뀐다.
