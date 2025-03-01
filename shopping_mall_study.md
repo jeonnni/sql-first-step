@@ -216,4 +216,4 @@ th:href=@{이동할 경로}
 Using generated security password: 85bbf8e4-5711-45b4-b56d-99068283d3cc
 ```
 
-#### 로그아웃 기능도 제공한다. URL에 localhost/logout 을 입력하면 된다. 하지만 현재는 user 계정 밖에 없으며 비밀번호도 계속 바뀐다.
+#### 로그아웃 기능도 제공한다. URL에 localhost/logout 을 입력하면 된다. 하지만 현재는 user 계정 밖에 없으며 비밀번호도 계속 바뀐다!.
