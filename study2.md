@@ -226,6 +226,6 @@ Registry에서 compiler.automake.allow.when.app.running 항목이 없어서 검�
   2. 여기서 Build Project Automatically 옵션을 체크합니다.<br>
 - <h4>애플리케이션이 실행 도중 이어도 자동으로 재실행될 수 있도록 허락하기</h4>
   1. 설정 경로: Settings > Advanced Settings<br>
-  2. Allow auto-make to start even if developed application is running 옵션을 체크합니다.<br>
+  2. Allow auto-make to start even if developed application is running 옵션을 체크합니다..<br>
 
 ​
